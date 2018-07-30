@@ -15,7 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="getByUserName" parameterType="String" resultMap="BloggerResult">
-		select * from t_blogger where userName = #{userName}
+		select id,userName,password,profile,nickName,sign,imageName from t_blogger where userName = #{userName}
+	</select>
+	
+	<select id="find" resultMap="BloggerResult">
+		select id,userName,password,profile,nickName,sign,imageName from t_blogger where id=1;
 	</select>
 	
 </mapper> 

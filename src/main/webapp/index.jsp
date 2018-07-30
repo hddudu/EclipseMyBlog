@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -121,10 +122,10 @@
 					博主信息
 				</div>
 				<div class="user_image">
-					<img src="${pageContext.request.contextPath}/static/userImages/c.png"/>
+					<img src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }"/>
 				</div>
-				<div class="nickName">Java1234_hongdu</div>
-				<div class="userSign">(知识改变命运，技术改变世界)</div>
+				<div class="nickName">${blogger.nickName }</div>
+				<div class="userSign">(${blogger.sign })</div>
 			</div>
 			
 			<div class="data_list">
@@ -142,56 +143,6 @@
 						
 							<li><span><a href="/index.html?typeId=28">Dubbo(7)</a></span></li>
 						
-							<li><span><a href="/index.html?typeId=32">IDEA(0)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=22">SpringBoot(10)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=26">Git(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=31">SpringCloud(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=3">Tomcat(5)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=29">支付宝接口(3)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=27">NodeJs(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=7">shiro(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=10">jsoup(6)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=25">活动(8)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=11">hibernate(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=18">EhCache缓存框架(4)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=9">webservice(10)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=24">elasticsearch(27)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=21">Redis(17)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=12">maven(4)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=4">IT之路(22)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=13">activiti(26)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=20">centos(23)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=17">log4j日志(8)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=5">随心生活(16)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=14">java爬虫技术(14)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=15">网站SEO(2)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=16">httpclient(7)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=19">htmlunit(10)</a></span></li>
-						
 					</ul>
 				</div>
 			</div>
@@ -208,64 +159,6 @@
 						
 							<li><span><a href="/index.html?releaseDateStr=2018年06月">2018年06月(4)</a></span></li>
 						
-							<li><span><a href="/index.html?releaseDateStr=2018年05月">2018年05月(4)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年04月">2018年04月(3)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年03月">2018年03月(7)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年02月">2018年02月(7)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年01月">2018年01月(13)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年12月">2017年12月(3)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年11月">2017年11月(10)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年10月">2017年10月(1)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年09月">2017年09月(9)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年08月">2017年08月(12)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年07月">2017年07月(19)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年06月">2017年06月(21)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年05月">2017年05月(1)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年04月">2017年04月(12)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年03月">2017年03月(13)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年02月">2017年02月(12)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2017年01月">2017年01月(14)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年12月">2016年12月(8)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年11月">2016年11月(25)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年10月">2016年10月(16)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年09月">2016年09月(13)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年08月">2016年08月(20)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年07月">2016年07月(12)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年06月">2016年06月(36)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年05月">2016年05月(10)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年04月">2016年04月(19)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年03月">2016年03月(14)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年02月">2016年02月(23)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年01月">2016年01月(1)</a></span></li>
-						
 					</ul>
 				</div>
 			</div>
@@ -277,15 +170,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-						
-							<li><span><a href="http://www.java1234.com/" target="_blank">Java知识分享网</a></span></li>
-						
-							<li><span><a href="http://pan.java1234.com/" target="_blank">百度云搜索引擎</a></span></li>
-						
-							<li><span><a href="http://www.easyicon.net/" target="_blank">小图标下载</a></span></li>
-						
-							<li><span><a href="http://www.uugai.com/" target="_blank">免费logo在线制作</a></span></li>
-						
+						<c:forEach var="link" items="${linkList }">
+							<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span></li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>

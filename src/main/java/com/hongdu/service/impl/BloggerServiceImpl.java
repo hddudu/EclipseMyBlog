@@ -24,4 +24,9 @@ public class BloggerServiceImpl implements BloggerService {
         return bloggerDao.getByUserName(userName);
     }
 
+    @Override
+    public Blogger find() {
+        return bloggerDao.find();
+    }
+
 }
