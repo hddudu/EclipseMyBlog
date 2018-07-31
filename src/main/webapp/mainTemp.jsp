@@ -92,7 +92,6 @@
 			
 		</div>
 	</div>
-	
 	<jsp:include page="/foreground/common/footer.jsp"/>
 </div>
 </body>

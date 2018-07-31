@@ -1,6 +1,8 @@
 package com.hongdu.entity;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 博客实体
@@ -15,13 +17,17 @@ public class Blog {
     private Date releaseDate;//发布日期
     private Integer clickHit;//点击次数
     private Integer replyHit;//回复次数
-    private String content;//博客内容
+    private String content;//博客内容 : 从博客内容里面提取图片
     
     private BlogType blogType;//博客类型
     
     private String keyWord;//关键字 空格 隔开
     private Integer blogCount;//博客数量 非博客实际属性 主要是根据归档日期查询数量用到
     private String releaseDateStr;//发布日期的字符串 只取年和月
+    
+    private List<String> imageList = new LinkedList<>();//博客里存在的图片主要用于列表展示
+    
+    
     public Integer getId() {
         return id;
     }
@@ -87,6 +93,12 @@ public class Blog {
     }
     public void setReleaseDateStr(String releaseDateStr) {
         this.releaseDateStr = releaseDateStr;
+    }
+    public List<String> getImageList() {
+        return imageList;
+    }
+    public void setImageList(List<String> imageList) {
+        this.imageList = imageList;
     }
     
     
