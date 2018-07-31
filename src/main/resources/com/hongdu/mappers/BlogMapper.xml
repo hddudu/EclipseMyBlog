@@ -76,4 +76,56 @@ Mybatis一对一关联查询的总结
 		</where>
 	</select>
 	
+	<select id="findById" parameterType="Integer" resultMap="BlogResult">
+		SELECT 
+			ID,
+			TITLE,
+			SUMMARY,
+			RELEASEDATE,
+			CLICKHIT,
+			REPLYHIT,
+			CONTENT,
+			KEYWORD			
+		FROM T_BLOG
+		WHERE id = #{id}
+	</select>
+	
+	<update id="update" parameterType="Blog">
+		update t_blog
+		<set>
+			<if test="clickHit != null and clickHit != ''">
+				clickHit = #{clickHit}
+			</if>
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+	<select id="getLastBlog" parameterType="Integer" resultMap="BlogResult">
+		SELECT 
+			ID,
+			TITLE,
+			SUMMARY,
+			RELEASEDATE,
+			CLICKHIT,
+			REPLYHIT,
+			CONTENT,
+			KEYWORD	
+		FROM t_blog WHERE id &lt; #{id} ORDER BY id DESC LIMIT 1
+	</select>
+	
+	<select id="getNextBlog" parameterType="Integer" resultMap="BlogResult">
+		SELECT 
+			ID,
+			TITLE,
+			SUMMARY,
+			RELEASEDATE,
+			CLICKHIT,
+			REPLYHIT,
+			CONTENT,
+			KEYWORD	
+		FROM t_blog WHERE id &gt; #{id} ORDER BY  id ASC LIMIT 1;
+	</select>
+	
 </mapper> 

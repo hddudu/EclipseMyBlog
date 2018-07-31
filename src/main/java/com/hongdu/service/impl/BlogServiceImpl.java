@@ -37,4 +37,24 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.getTotal(map);
     }
 
+    @Override
+    public Blog findById(Integer id) {
+        return blogDao.findById(id);
+    }
+
+    @Override
+    public Integer update(Blog blog) {
+        return blogDao.update(blog);
+    }
+
+    @Override
+    public Blog getLastBlog(Integer id) {
+        return blogDao.getLastBlog(id);
+    }
+
+    @Override
+    public Blog getNextBlog(Integer id) {
+        return blogDao.getNextBlog(id);
+    }
+
 }
