@@ -33,7 +33,28 @@ Mybatis一对一关联查询的总结
 	</select>
 	
 	<select id="list" parameterType="Map" resultMap="BlogResult">
-		select * from t_blog
+		SELECT 
+			ID,
+			TITLE,
+			SUMMARY,
+			RELEASEDATE,
+			CLICKHIT,
+			REPLYHIT,
+			CONTENT,
+			KEYWORD			
+		FROM T_BLOG
+		<where>
+			<if test="typeId != null and typeId != ''">
+				and typeId = #{typeId}
+			</if>
+			<if test="releaseDateStr != null and releaseDateStr != ''">
+<!-- 				and DATE_FORMAT(releaseDate,'%Y') like concat('%',#{releaseDateStr},'%') -->
+<!-- 				and DATE_FORMAT(releaseDate,'%Y') = substring(#{releaseDateStr},1,4) -->
+<!-- 轻松解决乱码 -->
+<!-- <Connector URIEncoding="UTF-8" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/> -->
+		and DATE_FORMAT(releaseDate,'%Y年%m月') = #{releaseDateStr}
+			</if>
+		</where>
 		order by releaseDate desc
 		<if test="start!=null and size!=null">
 			limit #{start},#{size}
@@ -45,6 +66,14 @@ Mybatis一对一关联查询的总结
 	 -->
 	<select id="getTotal" parameterType="Map" resultType="Long">
 		select count(*) from t_blog
+		<where>
+			<if test="typeId != null and typeId != ''">
+				and typeId = #{typeId}
+			</if>
+			<if test="releaseDateStr != null and releaseDateStr != ''">
+				and DATE_FORMAT(releaseDate,'%Y年%m月') = #{releaseDateStr}
+			</if>
+		</where>
 	</select>
 	
 </mapper> 

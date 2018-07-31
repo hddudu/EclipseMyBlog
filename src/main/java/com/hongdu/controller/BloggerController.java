@@ -8,6 +8,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hongdu.entity.Blogger;
 import com.hongdu.service.BloggerService;
@@ -19,7 +20,7 @@ import com.hongdu.utils.CryptographyUtil;
  *
  */
 @Controller
-@RequestMapping("/blogger")
+@RequestMapping("/blogger")//blogger表示请求的前面的一个路径
 public class BloggerController {
 
     @Resource
@@ -45,6 +46,15 @@ public class BloggerController {
             request.setAttribute("errorInfo", "用户名或者密码错误!");
             return "login";
         }
+    }
+    
+    @RequestMapping("/aboutMe")
+    public ModelAndView aboutMe() throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("mainPage", "/foreground/blogger/info.jsp");
+        mav.addObject("pageTitle", "关于博主_java开源博客系统");
+        mav.setViewName("mainTemp");
+        return mav;
     }
     
 }

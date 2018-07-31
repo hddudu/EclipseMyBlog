@@ -93,3 +93,6 @@
 .data_list .nickName , .data_list .userSign{
 	text-align: center;
 }
+.disabled{
+	pointer-events:none; 
+}

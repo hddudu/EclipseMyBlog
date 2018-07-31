@@ -32,6 +32,7 @@
 		<div class="col-md-9">
 			<!-- 动态内容页面 -->
 			<jsp:include page="${mainPage }"/>
+			<!-- 动态内容页面还可以是关于博主 -->
 		</div>
 		<!-- 博主信息模块 -->
 		<div class="col-md-3">
@@ -55,7 +56,7 @@
 				<div class="datas">
 					<ul>
 						<c:forEach var="blogTypeCount" items="${blogTypeCountList }">
-							<li><span><a href="#">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
+							<li><span><a href="${pageContext.request.contextPath}/index.html?typeId=${blogTypeCount.id}">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -69,7 +70,7 @@
 				<div class="datas">
 					<ul>
 						<c:forEach var="blogCount" items="${blogCountList }">
-							<li><span><a href="#">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
+							<li><span><a href="${pageContext.request.contextPath}/index.html?releaseDateStr=${blogCount.releaseDateStr}">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
 						</c:forEach>
 					</ul>
 				</div>
