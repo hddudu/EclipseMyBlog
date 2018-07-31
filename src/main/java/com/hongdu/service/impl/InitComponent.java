@@ -40,6 +40,10 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
         LinkService linkService = (LinkService) applicationContext.getBean("linkService");
         List<Link> linkList = linkService.list(null);//查询所有的友情链接信息
         application.setAttribute("linkList", linkList);
+        
+        //把按照日志类别归档博客信息存到application中
+        //把按照日志日期归档博客信息存到application中
+        
     }
 
     @Override
