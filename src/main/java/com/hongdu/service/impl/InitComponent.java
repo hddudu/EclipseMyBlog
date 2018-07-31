@@ -11,8 +11,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import com.hongdu.entity.Blog;
+import com.hongdu.entity.BlogType;
 import com.hongdu.entity.Blogger;
 import com.hongdu.entity.Link;
+import com.hongdu.service.BlogService;
+import com.hongdu.service.BlogTypeService;
 import com.hongdu.service.BloggerService;
 import com.hongdu.service.LinkService;
 
@@ -29,7 +33,7 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("............" + applicationContext);
+//        System.out.println("............" + applicationContext);
         //............Root WebApplicationContext: startup date [Mon Jul 30 19:27:03 CST 2018]; root of context hierarchy
         ServletContext application = sce.getServletContext();
         BloggerService bloggerService = (BloggerService) applicationContext.getBean("bloggerService");
@@ -42,8 +46,14 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
         application.setAttribute("linkList", linkList);
         
         //把按照日志类别归档博客信息存到application中
-        //把按照日志日期归档博客信息存到application中
+        BlogTypeService blogTypeService = (BlogTypeService) applicationContext.getBean("blogTypeService");
+        List<BlogType> blogTypeCountList = blogTypeService.countList();
+        application.setAttribute("blogTypeCountList", blogTypeCountList);
         
+        //把按照日志日期归档博客信息存到application中
+        BlogService blogService = (BlogService) applicationContext.getBean("blogService");
+        List<Blog> blogCountList = blogService.countList();
+        application.setAttribute("blogCountList", blogCountList);
     }
 
     @Override

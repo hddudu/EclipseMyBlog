@@ -23,8 +23,12 @@ public class BlogTypeServiceImpl implements BlogTypeService {
     
     @Override
     public List<BlogType> countList() {
-        // TODO Auto-generated method stub
-        return null;
+        return blogTypeDao.countList();
+    }
+
+    @Override
+    public BlogType findById(Integer id) {
+        return blogTypeDao.findById(id);
     }
 
 }

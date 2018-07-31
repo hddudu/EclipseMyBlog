@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongdu.dao.BlogDao">
+
+	<resultMap type="Blog" id="BlogResult">
+		<!-- 基本属性: 只对应数据库 -->
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="summary" column="summary"/>
+		<result property="releaseDate" column="releaseDate"/>
+		<result property="clickHit" column="clickHit"/>
+		<result property="replyHit" column="replyHit"/>
+		<result property="content" column="content"/>
+		<result property="keyWord" column="keyWord"/>
+		<!-- 主外键的关联属性 : 调用类型的查询sql -->		
+		<association property="blogType" column="typeId" select="com.hongdu.dao.BlogTypeDao.findById"></association>
+		<!-- 业务属性：通过计算等方式的,直接在bean中添加即可,因为i查询的结果是直接返回到bean中的,实体bean连接视图层 -->
+	</resultMap>
+<!-- 	
+Mybatis一对一关联查询的总结
+ MyBatis中使用association标签来解决一对一的关联查询，association标签可用的属性如下：
+ property:对象属性的名称
+ javaType:对象属性的类型
+ column:所对应的外键字段名称
+ select:使用另一个查询封装的结果 -->
+	
+	<select id="countList" resultMap="BlogResult">
+		SELECT DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr,COUNT(*) AS blogCount 
+		FROM t_blog GROUP BY DATE_FORMAT(releaseDate,'%Y年%m月') 
+		ORDER BY DATE_FORMAT(releaseDate,'%Y年%m月') DESC
+	</select>
+	
+	<select id="list" parameterType="Map" resultMap="BlogResult">
+		select * from t_blog
+		order by releaseDate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	<!-- 
+		resultType和resultMap
+		parameterType和parameterMap
+	 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from t_blog
+	</select>
+	
+</mapper> 

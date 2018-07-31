@@ -135,14 +135,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-							<li><span><a href="/index.html?typeId=1">Java核心基础(126)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=30">Layui(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=2">Mysql(2)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=28">Dubbo(7)</a></span></li>
-						
+						<c:forEach var="blogTypeCount" items="${blogTypeCountList }">
+							<li><span><a href="#">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -154,11 +149,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年07月">2018年07月(1)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2018年06月">2018年06月(4)</a></span></li>
-						
+						<c:forEach var="blogCount" items="${blogCountList }">
+							<li><span><a href="#">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>

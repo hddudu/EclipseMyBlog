@@ -18,4 +18,12 @@ public interface BlogTypeDao {
      * @return
      */
     public List<BlogType> countList();
+    
+    /**
+     * 通过id查询博客类型实体
+     * @param id
+     * @return
+     */
+    public BlogType findById(Integer id);
+    
 }
